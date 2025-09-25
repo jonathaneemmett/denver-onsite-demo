@@ -308,31 +308,31 @@ export function StructuralHeartCapture({ selectedYear, hospitalName = 'Cedars-Si
 				<div className="space-y-6">
 					{/* Key Metrics */}
 					<div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-						<div className="bg-slate-50 rounded-lg p-4">
+						<div className="bg-blue-50 rounded-lg p-4">
 							<div className="flex items-center justify-between mb-2">
-								<FontAwesomeIcon icon={faUsers} className="w-5 h-5 text-slate-600" />
-								<span className="text-xs text-slate-600 font-medium">50-MILE RADIUS</span>
+								<FontAwesomeIcon icon={faUsers} className="w-5 h-5 text-blue-600" />
+								<span className="text-xs text-blue-600 font-medium">50-MILE RADIUS</span>
 							</div>
-							<p className="text-2xl font-bold text-slate-900">{totalRegionalMyocarditis}</p>
-							<p className="text-sm text-slate-700">Annual Myocarditis Cases</p>
+							<p className="text-2xl font-bold text-blue-800">{totalRegionalMyocarditis}</p>
+							<p className="text-sm text-blue-700">Annual Myocarditis Cases</p>
 						</div>
 
-						<div className="bg-stone-50 rounded-lg p-4">
+						<div className="bg-emerald-50 rounded-lg p-4">
 							<div className="flex items-center justify-between mb-2">
-								<FontAwesomeIcon icon={faHeart} className="w-5 h-5 text-stone-600" />
-								<span className="text-xs text-stone-600 font-medium">PROCEDURES</span>
+								<FontAwesomeIcon icon={faHeart} className="w-5 h-5 text-emerald-600" />
+								<span className="text-xs text-emerald-600 font-medium">PROCEDURES</span>
 							</div>
-							<p className="text-2xl font-bold text-stone-900">{totalRegionalStructural}</p>
-							<p className="text-sm text-stone-700">Structural Heart Cases</p>
+							<p className="text-2xl font-bold text-emerald-800">{totalRegionalStructural}</p>
+							<p className="text-sm text-emerald-700">Structural Heart Cases</p>
 						</div>
 
-						<div className="bg-zinc-50 rounded-lg p-4">
+						<div className="bg-purple-50 rounded-lg p-4">
 							<div className="flex items-center justify-between mb-2">
-								<FontAwesomeIcon icon={faPercentage} className="w-5 h-5 text-zinc-600" />
-								<span className="text-xs text-zinc-600 font-medium">CONVERSION</span>
+								<FontAwesomeIcon icon={faPercentage} className="w-5 h-5 text-purple-600" />
+								<span className="text-xs text-purple-600 font-medium">CONVERSION</span>
 							</div>
-							<p className="text-2xl font-bold text-zinc-900">{overallConversionRate.toFixed(1)}%</p>
-							<p className="text-sm text-zinc-700">Regional Average</p>
+							<p className="text-2xl font-bold text-purple-800">{overallConversionRate.toFixed(1)}%</p>
+							<p className="text-sm text-purple-700">Regional Average</p>
 						</div>
 
 						<div className="bg-amber-50 rounded-lg p-4">
