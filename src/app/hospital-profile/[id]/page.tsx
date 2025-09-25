@@ -19,7 +19,9 @@ import {
 	ReferringVolumeAnalytics, 
 	CMRGrowthProjections, 
 	StructuralHeartCapture, 
-	OrganizationalChart 
+	OrganizationalChart,
+	CedarsSinaiFacilityProfile,
+	ExpansionOpportunities
 } from '@/components/CedarsSinai';
 
 // Hospital profile data (in a real app, this would come from an API)
@@ -238,15 +240,6 @@ export default function HospitalProfilePage({ params }: HospitalProfilePageProps
 			/>
 
 			<div className="pt-40 max-w-7xl mx-auto p-6">
-				<div className="mb-6">
-					<button
-						onClick={() => router.back()}
-						className="flex items-center text-slate-600 hover:text-slate-800 transition-colors mb-4"
-					>
-						<FontAwesomeIcon icon={faArrowLeft} className="w-4 h-4 mr-2" />
-						Back to Expansion Opportunities
-					</button>
-				</div>
 
 				<main className="flex flex-col lg:flex-row gap-6">
 					{/* LEFT COLUMN - Main Content Area - 2/3 width */}
@@ -254,11 +247,13 @@ export default function HospitalProfilePage({ params }: HospitalProfilePageProps
 						<CMRGrowthProjections selectedYear={selectedYear} hospitalName={hospital.name} />
 						<ReferringVolumeAnalytics selectedYear={selectedYear} hospitalName={hospital.name} />
 						<StructuralHeartCapture selectedYear={selectedYear} hospitalName={hospital.name} />
+						<ExpansionOpportunities selectedYear={selectedYear} />
 					</div>
 
 					{/* RIGHT COLUMN - Sidebar - 1/3 width */}
 					<div className="flex flex-col lg:w-1/3 space-y-6">
 						<OrganizationalChart hospitalName={hospital.name} />
+						<CedarsSinaiFacilityProfile selectedYear={selectedYear} />
 						
 						{/* Hospital Info Card */}
 						<div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
