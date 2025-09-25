@@ -159,20 +159,7 @@ export function OrganizationalChart({ hospitalName = 'Cedars-Sinai Medical Cente
                   </p>
                 </div>
                 
-                <div className="mt-4 space-y-3 text-xs">
-                  <div className="bg-white/70 rounded-lg p-3 border border-slate-200">
-                    <div className="font-bold text-neutral-900 mb-2 flex items-center">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
-                      Specialties
-                    </div>
-                    <div className="flex flex-wrap gap-1">
-                      {director.specialties.map((specialty, idx) => (
-                        <span key={idx} className="bg-blue-50 text-blue-800 border border-blue-200 px-2 py-1 rounded-md text-xs font-medium">
-                          {specialty}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                <div className="mt-4 text-xs">
                   <div className="bg-white/70 rounded-lg p-3 border border-slate-200">
                     <div className="font-bold text-neutral-900 mb-2 flex items-center">
                       <div className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></div>
@@ -224,20 +211,7 @@ export function OrganizationalChart({ hospitalName = 'Cedars-Sinai Medical Cente
                       </p>
                     </div>
                     
-                    <div className="grid grid-cols-1 gap-3 text-xs">
-                      <div className="bg-white rounded-lg p-3 border border-slate-200">
-                        <div className="font-bold text-neutral-900 mb-2 flex items-center">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
-                          Specialties
-                        </div>
-                        <div className="flex flex-wrap gap-1">
-                          {leader.specialties.map((specialty, idx) => (
-                            <span key={idx} className="bg-blue-50 text-blue-800 border border-blue-200 px-2 py-1 rounded text-xs">
-                              {specialty}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
+                    <div className="text-xs">
                       <div className="bg-white rounded-lg p-3 border border-slate-200">
                         <div className="font-bold text-neutral-900 mb-2 flex items-center">
                           <div className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></div>
@@ -289,20 +263,7 @@ export function OrganizationalChart({ hospitalName = 'Cedars-Sinai Medical Cente
                         </p>
                       </div>
                       
-                      <div className="grid grid-cols-1 gap-3 text-xs">
-                        <div className="bg-white rounded-lg p-3 border border-amber-200">
-                          <div className="font-bold text-neutral-900 mb-2 flex items-center">
-                            <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
-                            Specialties
-                          </div>
-                          <div className="flex flex-wrap gap-1">
-                            {leader.specialties.map((specialty, idx) => (
-                              <span key={idx} className="bg-blue-50 text-blue-800 border border-blue-200 px-2 py-1 rounded text-xs">
-                                {specialty}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
+                      <div className="text-xs">
                         <div className="bg-white rounded-lg p-3 border border-amber-200">
                           <div className="font-bold text-neutral-900 mb-2 flex items-center">
                             <div className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></div>

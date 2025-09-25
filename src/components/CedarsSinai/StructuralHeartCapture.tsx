@@ -818,10 +818,10 @@ export function StructuralHeartCapture({
 							<div className='space-y-4'>
 								<div className='flex justify-between items-center'>
 									<span className='text-sm text-emerald-700'>
-										Target Conversion Rate
+										Target Annual Cases
 									</span>
 									<span className='font-bold text-emerald-900'>
-										70%
+										{mockMyocarditisData.basedOnBillingVolume}
 									</span>
 								</div>
 								<div className='flex justify-between items-center'>
@@ -834,14 +834,10 @@ export function StructuralHeartCapture({
 								</div>
 								<div className='flex justify-between items-center'>
 									<span className='text-sm text-emerald-700'>
-										Additional Cases
+										Target Conversion Rate
 									</span>
-									<span className='font-bold text-emerald-900 flex items-center'>
-										<span className='text-emerald-600 mr-1'>
-											+
-										</span>
-										{mockMyocarditisData.potentialCapture -
-											mockMyocarditisData.currentCapture}
+									<span className='font-bold text-emerald-900'>
+										70%
 									</span>
 								</div>
 								<div className='pt-2 border-t border-emerald-200'>

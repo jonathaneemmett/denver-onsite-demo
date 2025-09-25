@@ -448,11 +448,7 @@ export function ReferringVolumeAnalytics({ selectedYear, hospitalName = 'Cedars-
 											</div>
 										</div>
 
-										<div className="flex items-center space-x-3">
-											<div className="text-right flex-shrink-0">
-												<p className="text-xs text-neutral-500 whitespace-nowrap">Current Month</p>
-												<p className="font-semibold text-neutral-900">{physician.currentData.cedarsSinaiVolume.current}</p>
-											</div>
+										<div className="flex items-center space-x-4">
 											<div className="text-right flex-shrink-0">
 												<p className="text-xs text-neutral-500 whitespace-nowrap">CMR Referrals</p>
 												<p className="font-semibold text-blue-700">{physician.currentData.cmrReferrals}</p>
