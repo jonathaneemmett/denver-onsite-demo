@@ -445,10 +445,10 @@ export function ExpansionOpportunities({ selectedYear, currentHospitalId, curren
 	};
 
 	return (
-		<div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+		<div className="bg-white rounded-lg shadow-sm border border-neutral-200 p-6">
 			<div className="mb-6">
-				<h2 className="text-xl font-semibold text-slate-900 mb-2 flex items-center">
-					<FontAwesomeIcon icon={faChartLine} className="w-5 h-5 text-slate-600 mr-3" />
+				<h2 className="text-lg font-semibold text-slate-900 mb-2 flex items-center">
+					<FontAwesomeIcon icon={faChartLine} className="w-4 h-4 text-slate-600 mr-2" />
 					Expansion Opportunities
 					{isPredictiveYear && (
 						<span className="ml-3 bg-slate-100 text-slate-700 text-xs font-medium px-3 py-1 rounded-full">
@@ -456,7 +456,7 @@ export function ExpansionOpportunities({ selectedYear, currentHospitalId, curren
 						</span>
 					)}
 				</h2>
-				<p className="text-slate-600 text-sm">
+				<p className="text-slate-500 text-sm leading-tight">
 					{currentHealthSystem 
 						? `Other locations within ${currentHealthSystem} with CMR and chest MRI volumes - click any hospital to view profile`
 						: 'Regional health systems with CMR and chest MRI volumes - click any hospital to view profile'

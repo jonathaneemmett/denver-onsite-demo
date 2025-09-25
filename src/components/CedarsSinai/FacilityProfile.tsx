@@ -31,7 +31,7 @@ export function CedarsSinaiFacilityProfile({ selectedYear }: FacilityProfileProp
 								/>
 							</div>
 							<div className='min-w-0 flex-1'>
-								<h2 className='text-lg font-bold truncate'>
+								<h2 className='text-base font-semibold truncate'>
 									Cedars-Sinai Medical Center
 								</h2>
 								<div className='flex items-center gap-1 text-neutral-600 text-sm mt-1'>
@@ -80,10 +80,10 @@ export function CedarsSinaiFacilityProfile({ selectedYear }: FacilityProfileProp
 					{/* Facility Details */}
 					<div className='p-4 space-y-4'>
 						<div>
-							<h3 className='font-semibold text-neutral-800 mb-3 flex items-center gap-2'>
+							<h3 className='font-semibold text-neutral-800 mb-3 flex items-center gap-2 text-sm'>
 								<FontAwesomeIcon
 									icon={faHospital}
-									className='w-4 h-4 text-neutral-600'
+									className='w-3 h-3 text-neutral-600'
 								/>
 								Facility Details
 							</h3>
@@ -125,10 +125,10 @@ export function CedarsSinaiFacilityProfile({ selectedYear }: FacilityProfileProp
 
 						{/* Key Programs */}
 						<div>
-							<h3 className='font-semibold text-neutral-800 mb-3 flex items-center gap-2'>
+							<h3 className='font-semibold text-neutral-800 mb-3 flex items-center gap-2 text-sm'>
 								<FontAwesomeIcon
 									icon={faAward}
-									className='w-4 h-4 text-neutral-600'
+									className='w-3 h-3 text-neutral-600'
 								/>
 								Key Programs
 							</h3>
@@ -167,10 +167,10 @@ export function CedarsSinaiFacilityProfile({ selectedYear }: FacilityProfileProp
 
 						{/* Contact Info */}
 						<div>
-							<h3 className='font-semibold text-neutral-800 mb-3 flex items-center gap-2'>
+							<h3 className='font-semibold text-neutral-800 mb-3 flex items-center gap-2 text-sm'>
 								<FontAwesomeIcon
 									icon={faPhone}
-									className='w-4 h-4 text-neutral-600'
+									className='w-3 h-3 text-neutral-600'
 								/>
 								Contact
 							</h3>

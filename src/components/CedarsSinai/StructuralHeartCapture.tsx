@@ -266,10 +266,10 @@ export function StructuralHeartCapture({ selectedYear, hospitalName = 'Cedars-Si
 	};
 
 	return (
-		<div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+		<div className="bg-white rounded-lg shadow-sm border border-neutral-200 p-6">
 			<div className="mb-6">
-				<h2 className="text-xl font-semibold text-gray-900 mb-2 flex items-center">
-					<FontAwesomeIcon icon={faHeart} className="w-5 h-5 text-slate-600 mr-3" />
+				<h2 className="text-lg font-semibold text-neutral-900 mb-2 flex items-center">
+					<FontAwesomeIcon icon={faHeart} className="w-4 h-4 text-slate-600 mr-2" />
 					{getTitle()}
 					{isPredictiveYear && (
 						<span className="ml-3 bg-slate-100 text-slate-800 text-xs font-medium px-2 py-1 rounded-full">
@@ -277,13 +277,13 @@ export function StructuralHeartCapture({ selectedYear, hospitalName = 'Cedars-Si
 						</span>
 					)}
 				</h2>
-				<p className="text-gray-600">
+				<p className="text-sm text-slate-500 leading-tight">
 					{getSubtitle()}
 				</p>
 			</div>
 
 			{/* View Toggle */}
-			<div className="flex space-x-1 mb-6 bg-gray-100 rounded-lg p-1">
+			<div className="flex space-x-1 mb-6 bg-neutral-100 rounded-lg p-1">
 				{[
 					{ key: 'overview', label: 'Overview', icon: faChartPie },
 					{ key: 'geographic', label: 'Geographic Analysis', icon: faMapMarkerAlt },
@@ -295,7 +295,7 @@ export function StructuralHeartCapture({ selectedYear, hospitalName = 'Cedars-Si
 						className={`flex items-center px-4 py-2 rounded-md text-sm font-medium transition-colors ${
 							selectedView === key
 								? 'bg-white text-slate-700 shadow-sm'
-								: 'text-gray-600 hover:text-gray-900'
+								: 'text-neutral-600 hover:text-neutral-900'
 						}`}
 					>
 						<FontAwesomeIcon icon={icon} className="w-4 h-4 mr-2" />
@@ -350,18 +350,18 @@ export function StructuralHeartCapture({ selectedYear, hospitalName = 'Cedars-Si
 
 					{/* Cedars-Sinai Performance */}
 					<div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6">
-						<h3 className="text-lg font-semibold text-gray-900 mb-4">Cedars-Sinai Performance</h3>
+						<h3 className="text-lg font-semibold text-neutral-900 mb-4">Cedars-Sinai Performance</h3>
 						<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 							<div className="text-center">
 								<p className="text-3xl font-bold text-blue-700 mb-1">{cedarsSinaiData.myocarditisVolume}</p>
-								<p className="text-sm text-gray-600 mb-2">Myocarditis Cases</p>
+								<p className="text-sm text-neutral-600 mb-2">Myocarditis Cases</p>
 								<p className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded-full">
 									{cedarsSinaiData.marketShare}% market share
 								</p>
 							</div>
 							<div className="text-center">
 								<p className="text-3xl font-bold text-emerald-700 mb-1">{cedarsSinaiData.structuralProcedures}</p>
-								<p className="text-sm text-gray-600 mb-2">Structural Procedures</p>
+								<p className="text-sm text-neutral-600 mb-2">Structural Procedures</p>
 								<p className="text-xs text-emerald-600 bg-emerald-100 px-2 py-1 rounded-full">
 									{cedarsSinaiData.conversionRate}% conversion rate
 								</p>
@@ -370,7 +370,7 @@ export function StructuralHeartCapture({ selectedYear, hospitalName = 'Cedars-Si
 								<p className="text-3xl font-bold text-purple-700 mb-1">
 									{(mockMyocarditisData.potentialCapture - cedarsSinaiData.structuralProcedures)}
 								</p>
-								<p className="text-sm text-gray-600 mb-2">Additional Potential</p>
+								<p className="text-sm text-neutral-600 mb-2">Additional Potential</p>
 								<p className="text-xs text-purple-600 bg-purple-100 px-2 py-1 rounded-full">
 									vs {competitorAvgConversion.toFixed(1)}% competitor avg
 								</p>
@@ -383,69 +383,69 @@ export function StructuralHeartCapture({ selectedYear, hospitalName = 'Cedars-Si
 			{/* Geographic Analysis Tab */}
 			{selectedView === 'geographic' && (
 				<div className="space-y-6">
-					<div className="bg-gray-50 rounded-lg p-4 mb-6">
+					<div className="bg-neutral-50 rounded-lg p-4 mb-6">
 						<div className="flex items-center mb-2">
-							<FontAwesomeIcon icon={faMapMarkerAlt} className="w-5 h-5 text-gray-600 mr-2" />
-							<h3 className="text-lg font-semibold text-gray-900">Regional Hospital Analysis</h3>
+							<FontAwesomeIcon icon={faMapMarkerAlt} className="w-5 h-5 text-neutral-600 mr-2" />
+							<h3 className="text-lg font-semibold text-neutral-900">Regional Hospital Analysis</h3>
 						</div>
-						<p className="text-sm text-gray-600">
+						<p className="text-sm text-neutral-600">
 							Myocarditis diagnosis to structural heart procedure conversion within 50-mile radius of Cedars-Sinai
 						</p>
 					</div>
 
 					<div className="overflow-x-auto">
-						<table className="w-full border-collapse border border-gray-200 rounded-lg overflow-hidden">
+						<table className="w-full border-collapse border border-neutral-200 rounded-lg overflow-hidden">
 							<thead>
-								<tr className="bg-gray-50">
-									<th className="border border-gray-200 px-4 py-3 text-left text-sm font-semibold text-gray-900">
+								<tr className="bg-neutral-50">
+									<th className="border border-neutral-200 px-4 py-3 text-left text-sm font-semibold text-neutral-900">
 										Hospital
 									</th>
-									<th className="border border-gray-200 px-4 py-3 text-center text-sm font-semibold text-gray-900">
+									<th className="border border-neutral-200 px-4 py-3 text-center text-sm font-semibold text-neutral-900">
 										Distance
 									</th>
-									<th className="border border-gray-200 px-4 py-3 text-center text-sm font-semibold text-gray-900">
+									<th className="border border-neutral-200 px-4 py-3 text-center text-sm font-semibold text-neutral-900">
 										Myocarditis Cases
 									</th>
-									<th className="border border-gray-200 px-4 py-3 text-center text-sm font-semibold text-gray-900">
+									<th className="border border-neutral-200 px-4 py-3 text-center text-sm font-semibold text-neutral-900">
 										Structural Procedures
 									</th>
-									<th className="border border-gray-200 px-4 py-3 text-center text-sm font-semibold text-gray-900">
+									<th className="border border-neutral-200 px-4 py-3 text-center text-sm font-semibold text-neutral-900">
 										Conversion Rate
 									</th>
-									<th className="border border-gray-200 px-4 py-3 text-center text-sm font-semibold text-gray-900">
+									<th className="border border-neutral-200 px-4 py-3 text-center text-sm font-semibold text-neutral-900">
 										Market Share
 									</th>
 								</tr>
 							</thead>
 							<tbody>
 								{mockRegionalData.map((hospital, index) => (
-									<tr key={index} className={`${index === 0 ? 'bg-blue-50 border-blue-200' : 'hover:bg-gray-50'}`}>
-										<td className="border border-gray-300 px-4 py-4">
+									<tr key={index} className={`${index === 0 ? 'bg-blue-50 border-blue-200' : 'hover:bg-neutral-50'}`}>
+										<td className="border border-neutral-300 px-4 py-4">
 											<div className="flex items-center">
 												{index === 0 && (
 													<FontAwesomeIcon icon={faHeart} className="w-4 h-4 text-blue-600 mr-2" />
 												)}
-												<span className={`font-semibold text-sm ${index === 0 ? 'text-blue-900' : 'text-gray-900'}`}>
+												<span className={`font-semibold text-sm ${index === 0 ? 'text-blue-900' : 'text-neutral-900'}`}>
 													{hospital.name}
 												</span>
 											</div>
 										</td>
-										<td className="border border-gray-300 px-4 py-4 text-center">
-											<span className="font-medium text-gray-800">
+										<td className="border border-neutral-300 px-4 py-4 text-center">
+											<span className="font-medium text-neutral-800">
 												{hospital.distance === 0 ? '-' : `${hospital.distance} mi`}
 											</span>
 										</td>
-										<td className="border border-gray-300 px-4 py-4 text-center">
-											<span className={`text-lg font-bold ${index === 0 ? 'text-blue-700' : 'text-gray-900'}`}>
+										<td className="border border-neutral-300 px-4 py-4 text-center">
+											<span className={`text-lg font-bold ${index === 0 ? 'text-blue-700' : 'text-neutral-900'}`}>
 												{hospital.myocarditisVolume}
 											</span>
 										</td>
-										<td className="border border-gray-300 px-4 py-4 text-center">
+										<td className="border border-neutral-300 px-4 py-4 text-center">
 											<span className={`text-lg font-bold ${index === 0 ? 'text-blue-700' : 'text-slate-700'}`}>
 												{hospital.structuralProcedures}
 											</span>
 										</td>
-										<td className="border border-gray-300 px-4 py-4 text-center">
+										<td className="border border-neutral-300 px-4 py-4 text-center">
 											<span className={`text-lg font-bold px-3 py-1 rounded-full ${
 												index === 0 && hospital.conversionRate > competitorAvgConversion ? 'bg-emerald-100 text-emerald-800' :
 												index === 0 && hospital.conversionRate <= competitorAvgConversion ? 'bg-red-100 text-red-800' :
@@ -455,8 +455,8 @@ export function StructuralHeartCapture({ selectedYear, hospitalName = 'Cedars-Si
 												{hospital.conversionRate.toFixed(1)}%
 											</span>
 										</td>
-										<td className="border border-gray-300 px-4 py-4 text-center">
-											<span className={`font-bold ${index === 0 ? 'text-blue-700' : 'text-gray-900'}`}>
+										<td className="border border-neutral-300 px-4 py-4 text-center">
+											<span className={`font-bold ${index === 0 ? 'text-blue-700' : 'text-neutral-900'}`}>
 												{hospital.marketShare.toFixed(1)}%
 											</span>
 										</td>
@@ -507,12 +507,12 @@ export function StructuralHeartCapture({ selectedYear, hospitalName = 'Cedars-Si
 			{/* Billing Analysis Tab */}
 			{selectedView === 'billing' && (
 				<div className="space-y-6">
-					<div className="bg-gray-50 rounded-lg p-4 mb-6">
+					<div className="bg-neutral-50 rounded-lg p-4 mb-6">
 						<div className="flex items-center mb-2">
-							<FontAwesomeIcon icon={faDollarSign} className="w-5 h-5 text-gray-600 mr-2" />
-							<h3 className="text-lg font-semibold text-gray-900">Billing Volume Analysis</h3>
+							<FontAwesomeIcon icon={faDollarSign} className="w-5 h-5 text-neutral-600 mr-2" />
+							<h3 className="text-lg font-semibold text-neutral-900">Billing Volume Analysis</h3>
 						</div>
-						<p className="text-sm text-gray-600">
+						<p className="text-sm text-neutral-600">
 							Estimated myocarditis patient volume based on current billing data and conversion opportunities
 						</p>
 					</div>
@@ -577,8 +577,8 @@ export function StructuralHeartCapture({ selectedYear, hospitalName = 'Cedars-Si
 					</div>
 
 					{/* Conversion Funnel */}
-					<div className="bg-white border border-gray-200 rounded-lg p-6">
-						<h4 className="font-semibold text-gray-900 mb-4">Patient Conversion Funnel</h4>
+					<div className="bg-white border border-neutral-200 rounded-lg p-6">
+						<h4 className="font-semibold text-neutral-900 mb-4">Patient Conversion Funnel</h4>
 						<div className="space-y-4">
 							<div className="flex items-center">
 								<div className="w-16 h-12 bg-slate-500 rounded flex items-center justify-center text-white font-bold text-sm">
@@ -589,7 +589,7 @@ export function StructuralHeartCapture({ selectedYear, hospitalName = 'Cedars-Si
 										<div className="flex-1 h-2 bg-slate-200 rounded-full">
 											<div className="h-2 bg-slate-500 rounded-full" style={{ width: '100%' }}></div>
 										</div>
-										<FontAwesomeIcon icon={faArrowRight} className="w-4 h-4 text-gray-400 mx-2" />
+										<FontAwesomeIcon icon={faArrowRight} className="w-4 h-4 text-neutral-400 mx-2" />
 									</div>
 									<p className="text-xs text-slate-600 mt-1">Myocarditis Diagnoses</p>
 								</div>
@@ -603,7 +603,7 @@ export function StructuralHeartCapture({ selectedYear, hospitalName = 'Cedars-Si
 												width: `${(mockMyocarditisData.currentCapture / mockMyocarditisData.potentialCapture) * 100}%` 
 											}}></div>
 										</div>
-										<FontAwesomeIcon icon={faArrowRight} className="w-4 h-4 text-gray-400 mx-2" />
+										<FontAwesomeIcon icon={faArrowRight} className="w-4 h-4 text-neutral-400 mx-2" />
 									</div>
 									<p className="text-xs text-stone-600 mt-1">Current Procedures</p>
 								</div>

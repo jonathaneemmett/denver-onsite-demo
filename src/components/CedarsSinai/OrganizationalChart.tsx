@@ -129,13 +129,13 @@ export function OrganizationalChart({ hospitalName = 'Cedars-Sinai Medical Cente
   const independentDept = leadershipData.filter(leader => !leader.reportsTo && leader.id !== 'marban');
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
-      <div className="mb-4 text-center border-b border-gray-200 pb-3">
-        <h2 className="text-lg font-bold text-gray-900 mb-1 flex items-center justify-center">
+    <div className="bg-white rounded-lg shadow-sm border border-neutral-200 p-4">
+      <div className="mb-4 border-b border-neutral-200 pb-3">
+        <h2 className="text-base font-semibold text-neutral-900 mb-1 flex items-center">
           <FontAwesomeIcon icon={faUsers} className="w-4 h-4 text-slate-600 mr-2" />
           {hospitalName?.split(' ')[0] || 'Cedars-Sinai'} Leadership
         </h2>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-slate-500 leading-tight">
           Smidt Heart Institute & Cardiac Services
         </p>
       </div>
@@ -151,17 +151,17 @@ export function OrganizationalChart({ hospitalName = 'Cedars-Sinai Medical Cente
                   <div className="w-12 h-12 bg-slate-600 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md">
                     <FontAwesomeIcon icon={getLeaderIcon(director.department)} className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="font-bold text-base text-gray-900">{director.name}</h3>
-                  <p className="text-sm font-semibold text-gray-700">{director.credentials}</p>
+                  <h3 className="font-bold text-base text-neutral-900">{director.name}</h3>
+                  <p className="text-sm font-semibold text-neutral-700">{director.credentials}</p>
                   <p className="text-sm font-bold text-slate-800 mt-1">{director.title}</p>
-                  <p className="text-xs text-gray-600 mt-1 px-2 py-1 bg-white/50 rounded-full inline-block">
+                  <p className="text-xs text-neutral-600 mt-1 px-2 py-1 bg-white/50 rounded-full inline-block">
                     {director.department}
                   </p>
                 </div>
                 
                 <div className="mt-4 space-y-3 text-xs">
                   <div className="bg-white/70 rounded-lg p-3 border border-slate-200">
-                    <div className="font-bold text-gray-900 mb-2 flex items-center">
+                    <div className="font-bold text-neutral-900 mb-2 flex items-center">
                       <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
                       Specialties
                     </div>
@@ -174,7 +174,7 @@ export function OrganizationalChart({ hospitalName = 'Cedars-Sinai Medical Cente
                     </div>
                   </div>
                   <div className="bg-white/70 rounded-lg p-3 border border-slate-200">
-                    <div className="font-bold text-gray-900 mb-2 flex items-center">
+                    <div className="font-bold text-neutral-900 mb-2 flex items-center">
                       <div className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></div>
                       Professional Societies
                     </div>
@@ -216,17 +216,17 @@ export function OrganizationalChart({ hospitalName = 'Cedars-Sinai Medical Cente
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="mb-3">
-                      <h4 className="font-bold text-base text-gray-900">{leader.name}</h4>
-                      <p className="text-sm font-semibold text-gray-700">{leader.credentials}</p>
+                      <h4 className="font-bold text-base text-neutral-900">{leader.name}</h4>
+                      <p className="text-sm font-semibold text-neutral-700">{leader.credentials}</p>
                       <p className="text-sm font-bold text-slate-800">{leader.title}</p>
-                      <p className="text-xs text-gray-600 mt-1 px-2 py-1 bg-white/70 rounded-full inline-block border border-slate-200">
+                      <p className="text-xs text-neutral-600 mt-1 px-2 py-1 bg-white/70 rounded-full inline-block border border-slate-200">
                         {leader.department}
                       </p>
                     </div>
                     
                     <div className="grid grid-cols-1 gap-3 text-xs">
                       <div className="bg-white rounded-lg p-3 border border-slate-200">
-                        <div className="font-bold text-gray-900 mb-2 flex items-center">
+                        <div className="font-bold text-neutral-900 mb-2 flex items-center">
                           <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
                           Specialties
                         </div>
@@ -239,7 +239,7 @@ export function OrganizationalChart({ hospitalName = 'Cedars-Sinai Medical Cente
                         </div>
                       </div>
                       <div className="bg-white rounded-lg p-3 border border-slate-200">
-                        <div className="font-bold text-gray-900 mb-2 flex items-center">
+                        <div className="font-bold text-neutral-900 mb-2 flex items-center">
                           <div className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></div>
                           Professional Societies
                         </div>
@@ -263,7 +263,7 @@ export function OrganizationalChart({ hospitalName = 'Cedars-Sinai Medical Cente
         {independentDept.length > 0 && (
           <div className="border-t-2 border-slate-300 pt-6 mt-8">
             <div className="text-center mb-4">
-              <h3 className="font-bold text-sm text-gray-800 bg-amber-100 border border-amber-300 px-4 py-2 rounded-full inline-block">
+              <h3 className="font-bold text-sm text-neutral-800 bg-amber-100 border border-amber-300 px-4 py-2 rounded-full inline-block">
                 <FontAwesomeIcon icon={faMicroscope} className="w-3 h-3 mr-2 text-amber-600" />
                 Independent Departments
               </h3>
@@ -281,17 +281,17 @@ export function OrganizationalChart({ hospitalName = 'Cedars-Sinai Medical Cente
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="mb-3">
-                        <h4 className="font-bold text-base text-gray-900">{leader.name}</h4>
-                        <p className="text-sm font-semibold text-gray-700">{leader.credentials}</p>
+                        <h4 className="font-bold text-base text-neutral-900">{leader.name}</h4>
+                        <p className="text-sm font-semibold text-neutral-700">{leader.credentials}</p>
                         <p className="text-sm font-bold text-amber-800">{leader.title}</p>
-                        <p className="text-xs text-gray-600 mt-1 px-2 py-1 bg-white/70 rounded-full inline-block border border-amber-300">
+                        <p className="text-xs text-neutral-600 mt-1 px-2 py-1 bg-white/70 rounded-full inline-block border border-amber-300">
                           {leader.department}
                         </p>
                       </div>
                       
                       <div className="grid grid-cols-1 gap-3 text-xs">
                         <div className="bg-white rounded-lg p-3 border border-amber-200">
-                          <div className="font-bold text-gray-900 mb-2 flex items-center">
+                          <div className="font-bold text-neutral-900 mb-2 flex items-center">
                             <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
                             Specialties
                           </div>
@@ -304,7 +304,7 @@ export function OrganizationalChart({ hospitalName = 'Cedars-Sinai Medical Cente
                           </div>
                         </div>
                         <div className="bg-white rounded-lg p-3 border border-amber-200">
-                          <div className="font-bold text-gray-900 mb-2 flex items-center">
+                          <div className="font-bold text-neutral-900 mb-2 flex items-center">
                             <div className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></div>
                             Professional Societies
                           </div>

@@ -339,23 +339,23 @@ export function ReferringVolumeAnalytics({ selectedYear, hospitalName = 'Cedars-
 			case 'high': return 'bg-red-50 border-red-200 text-red-800';
 			case 'medium': return 'bg-yellow-50 border-yellow-200 text-yellow-800';
 			case 'low': return 'bg-green-50 border-green-200 text-green-800';
-			default: return 'bg-gray-50 border-gray-200 text-gray-800';
+			default: return 'bg-neutral-50 border-neutral-200 text-neutral-800';
 		}
 	};
 
 	const getTrendIcon = (current: number, previous: number) => {
 		if (current > previous) return { icon: faArrowUp, color: 'text-green-600' };
 		if (current < previous) return { icon: faArrowDown, color: 'text-red-600' };
-		return { icon: faArrowUp, color: 'text-gray-400' };
+		return { icon: faArrowUp, color: 'text-neutral-400' };
 	};
 
 	return (
-		<div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+		<div className="bg-white rounded-lg shadow-sm border border-neutral-200 p-6">
 			<div className="mb-6">
 				<div className="flex items-center justify-between mb-4">
 					<div>
-						<h2 className="text-xl font-semibold text-gray-900 mb-2 flex items-center">
-							<FontAwesomeIcon icon={faUsers} className="w-5 h-5 text-slate-600 mr-3" />
+						<h2 className="text-lg font-semibold text-neutral-900 mb-2 flex items-center">
+							<FontAwesomeIcon icon={faUsers} className="w-4 h-4 text-slate-600 mr-2" />
 							{getTitle()}
 							{isPredictiveYear && (
 								<span className="ml-3 bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded-full">
@@ -363,7 +363,7 @@ export function ReferringVolumeAnalytics({ selectedYear, hospitalName = 'Cedars-
 								</span>
 							)}
 						</h2>
-						<p className="text-gray-600">
+						<p className="text-sm text-slate-500 leading-tight">
 							{getSubtitle()}
 						</p>
 					</div>
@@ -372,11 +372,11 @@ export function ReferringVolumeAnalytics({ selectedYear, hospitalName = 'Cedars-
 
 			{/* Key Metrics */}
 			<div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-				<div className="bg-gray-50 rounded-lg p-4">
+				<div className="bg-neutral-50 rounded-lg p-4">
 					<div className="flex items-center justify-between">
 						<div>
-							<p className="text-sm text-gray-600 mb-1">Total Monthly Referrals</p>
-							<p className="text-2xl font-bold text-gray-900">{totalCurrentVolume}</p>
+							<p className="text-sm text-neutral-600 mb-1">Total Monthly Referrals</p>
+							<p className="text-2xl font-bold text-neutral-900">{totalCurrentVolume}</p>
 							<div className="flex items-center mt-1">
 								<FontAwesomeIcon
 									icon={volumeChange >= 0 ? faArrowUp : faArrowDown}
@@ -415,7 +415,7 @@ export function ReferringVolumeAnalytics({ selectedYear, hospitalName = 'Cedars-
 
 			{/* Physician List */}
 			<div>
-				<h3 className="text-lg font-semibold text-gray-900 mb-4">Referring Physicians</h3>
+				<h3 className="text-lg font-semibold text-neutral-900 mb-4">Referring Physicians</h3>
 				<div className="space-y-3">
 					{currentYearData.map((physician) => {
 						const isExpanded = expandedPhysician === physician.id;
@@ -426,11 +426,11 @@ export function ReferringVolumeAnalytics({ selectedYear, hospitalName = 'Cedars-
 						const trendIcon = getTrendIcon(physician.currentData.cedarsSinaiVolume.current, physician.currentData.cedarsSinaiVolume.previous);
 
 						return (
-							<div key={physician.id} className="border border-gray-200 rounded-lg overflow-hidden">
+							<div key={physician.id} className="border border-neutral-200 rounded-lg overflow-hidden">
 								{/* Main Physician Row */}
 								<div
-									className={`p-4 cursor-pointer hover:bg-gray-50 transition-colors ${
-										isExpanded ? 'bg-gray-50' : ''
+									className={`p-4 cursor-pointer hover:bg-neutral-50 transition-colors ${
+										isExpanded ? 'bg-neutral-50' : ''
 									}`}
 									onClick={() => setExpandedPhysician(isExpanded ? null : physician.id)}
 								>
@@ -438,11 +438,11 @@ export function ReferringVolumeAnalytics({ selectedYear, hospitalName = 'Cedars-
 										<div className="flex items-center space-x-4">
 											<FontAwesomeIcon
 												icon={isExpanded ? faChevronDown : faChevronRight}
-												className="w-4 h-4 text-gray-400"
+												className="w-4 h-4 text-neutral-400"
 											/>
 											<div>
-												<h4 className="font-medium text-gray-900">{physician.name}</h4>
-												<p className="text-sm text-gray-600">
+												<h4 className="font-medium text-neutral-900">{physician.name}</h4>
+												<p className="text-sm text-neutral-600">
 													{physician.specialty} • {physician.practice}
 												</p>
 											</div>
@@ -450,11 +450,11 @@ export function ReferringVolumeAnalytics({ selectedYear, hospitalName = 'Cedars-
 
 										<div className="flex items-center space-x-3">
 											<div className="text-right flex-shrink-0">
-												<p className="text-xs text-gray-500 whitespace-nowrap">Current Month</p>
-												<p className="font-semibold text-gray-900">{physician.currentData.cedarsSinaiVolume.current}</p>
+												<p className="text-xs text-neutral-500 whitespace-nowrap">Current Month</p>
+												<p className="font-semibold text-neutral-900">{physician.currentData.cedarsSinaiVolume.current}</p>
 											</div>
 											<div className="text-right flex-shrink-0">
-												<p className="text-xs text-gray-500 whitespace-nowrap">CMR Referrals</p>
+												<p className="text-xs text-neutral-500 whitespace-nowrap">CMR Referrals</p>
 												<p className="font-semibold text-blue-700">{physician.currentData.cmrReferrals}</p>
 											</div>
 											<div className="text-right flex-shrink-0">
@@ -479,11 +479,11 @@ export function ReferringVolumeAnalytics({ selectedYear, hospitalName = 'Cedars-
 
 								{/* Expanded Details */}
 								{isExpanded && (
-									<div className="border-t border-gray-200 bg-white p-4">
+									<div className="border-t border-neutral-200 bg-white p-4">
 										<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 											{/* Referral Trend to Cedars-Sinai */}
 											<div>
-												<h5 className="font-medium text-gray-900 mb-3">
+												<h5 className="font-medium text-neutral-900 mb-3">
 													Referrals to Cedars-Sinai (6 months) - {selectedYear}
 												</h5>
 												<div className="bg-gradient-to-b from-blue-50 to-white rounded-lg p-4 pt-8 border border-blue-100">
@@ -538,26 +538,26 @@ export function ReferringVolumeAnalytics({ selectedYear, hospitalName = 'Cedars-
 
 											{/* Competitor Activity */}
 											<div>
-												<h5 className="font-medium text-gray-900 mb-3">
+												<h5 className="font-medium text-neutral-900 mb-3">
 													Activity at Competing Hospitals - {selectedYear}
-													<span className="text-xs text-gray-500 block mt-1">
+													<span className="text-xs text-neutral-500 block mt-1">
 														Green = confirmed referral activity at competitors
 													</span>
 												</h5>
 												<div className="space-y-3">
 													{physician.currentData.competitorActivity.map((competitor, index) => (
-														<div key={index} className="bg-gray-50 rounded-lg p-3">
+														<div key={index} className="bg-neutral-50 rounded-lg p-3">
 															<div className="flex items-center justify-between">
 																<div className="flex items-center">
 																	<FontAwesomeIcon
 																		icon={faBuilding}
-																		className="w-4 h-4 text-gray-500 mr-2"
+																		className="w-4 h-4 text-neutral-500 mr-2"
 																	/>
 																	<div>
-																		<p className="font-medium text-gray-900 text-sm">
+																		<p className="font-medium text-neutral-900 text-sm">
 																			{competitor.hospitalName}
 																		</p>
-																		<p className="text-xs text-gray-600">
+																		<p className="text-xs text-neutral-600">
 																			{competitor.monthlyVolume} monthly referrals
 																		</p>
 																	</div>
@@ -568,12 +568,12 @@ export function ReferringVolumeAnalytics({ selectedYear, hospitalName = 'Cedars-
 																			  competitor.trend === 'decreasing' ? faArrowDown : faArrowUp}
 																		className={`w-3 h-3 mr-1 ${
 																			competitor.trend === 'increasing' ? 'text-green-600' :
-																			competitor.trend === 'decreasing' ? 'text-red-600' : 'text-gray-400'
+																			competitor.trend === 'decreasing' ? 'text-red-600' : 'text-neutral-400'
 																		}`}
 																	/>
 																	<span className={`text-sm font-medium ${
 																		competitor.trend === 'increasing' ? 'text-green-600' :
-																		competitor.trend === 'decreasing' ? 'text-red-600' : 'text-gray-400'
+																		competitor.trend === 'decreasing' ? 'text-red-600' : 'text-neutral-400'
 																	}`}>
 																		{competitor.percentChange > 0 ? '+' : ''}{competitor.percentChange}%
 																	</span>

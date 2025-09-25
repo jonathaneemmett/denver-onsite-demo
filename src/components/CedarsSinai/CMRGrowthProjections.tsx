@@ -85,10 +85,10 @@ export function CMRGrowthProjections({ selectedYear, hospitalName = 'Cedars-Sina
 	};
 
 	return (
-		<div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+		<div className="bg-white rounded-lg shadow-sm border border-neutral-200 p-6">
 			<div className="mb-6">
-				<h2 className="text-xl font-semibold text-gray-900 mb-2 flex items-center">
-					<FontAwesomeIcon icon={faChartLine} className="w-5 h-5 text-slate-600 mr-3" />
+				<h2 className="text-lg font-semibold text-neutral-900 mb-2 flex items-center">
+					<FontAwesomeIcon icon={faChartLine} className="w-4 h-4 text-slate-600 mr-2" />
 					{getTitle()}
 					{isPredictiveYear && (
 						<span className="ml-3 bg-slate-100 text-slate-800 text-xs font-medium px-2 py-1 rounded-full">
@@ -96,7 +96,7 @@ export function CMRGrowthProjections({ selectedYear, hospitalName = 'Cedars-Sina
 						</span>
 					)}
 				</h2>
-				<p className="text-gray-600">
+				<p className="text-sm text-slate-500 leading-tight">
 					{getSubtitle()}
 				</p>
 			</div>
@@ -125,12 +125,12 @@ export function CMRGrowthProjections({ selectedYear, hospitalName = 'Cedars-Sina
 
 			{/* Growth Scenarios - Single Year Profiles */}
 			{showGrowthProjections && (
-				<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
 				{/* 20% Growth Profile */}
-				<div className="border border-gray-200 rounded-lg p-6">
-					<div className="flex items-center justify-between mb-6">
-						<h3 className="text-lg font-semibold text-gray-900 flex items-center">
-							<FontAwesomeIcon icon={faArrowTrendUp} className="w-5 h-5 text-slate-600 mr-2" />
+				<div className="border border-neutral-200 rounded-lg p-4">
+					<div className="flex items-center justify-between mb-4">
+						<h3 className="text-lg font-semibold text-neutral-900 flex items-center">
+							<FontAwesomeIcon icon={faArrowTrendUp} className="w-5 h-5 text-emerald-600 mr-2" />
 							20% Growth Profile
 						</h3>
 						<span className="bg-emerald-100 text-emerald-700 text-xs font-medium px-2 py-1 rounded-full">
@@ -138,15 +138,15 @@ export function CMRGrowthProjections({ selectedYear, hospitalName = 'Cedars-Sina
 						</span>
 					</div>
 					
-					<div className="space-y-6">
+					<div className="space-y-4">
 						{/* Current vs Projected - Single column */}
-						<div className="space-y-4">
-							<div className="bg-gray-50 rounded-lg p-4 text-center">
-								<p className="text-sm text-gray-600 mb-1">Current Annual</p>
-								<p className="text-2xl font-bold text-gray-900">{formatVolume(growth20Profile.currentVolume)}</p>
-								<p className="text-xs text-gray-500">CMR Studies</p>
+						<div className="space-y-3">
+							<div className="bg-neutral-50 rounded-lg p-3 text-center">
+								<p className="text-sm text-neutral-600 mb-1">Current Annual</p>
+								<p className="text-2xl font-bold text-neutral-900">{formatVolume(growth20Profile.currentVolume)}</p>
+								<p className="text-xs text-neutral-500">CMR Studies</p>
 							</div>
-							<div className="bg-emerald-50 rounded-lg p-4 text-center border border-emerald-100">
+							<div className="bg-emerald-50 rounded-lg p-3 text-center border border-emerald-100">
 								<p className="text-sm text-emerald-700 mb-1">With 20% Growth</p>
 								<p className="text-2xl font-bold text-emerald-800">{formatVolume(growth20Profile.projectedVolume)}</p>
 								<p className="text-xs text-emerald-600">CMR Studies</p>
@@ -154,7 +154,7 @@ export function CMRGrowthProjections({ selectedYear, hospitalName = 'Cedars-Sina
 						</div>
 
 						{/* Revenue Impact */}
-						<div className="bg-emerald-50 rounded-lg p-4 border border-emerald-100">
+						<div className="bg-emerald-50 rounded-lg p-3 border border-emerald-100">
 							<div className="flex items-center justify-between mb-3">
 								<h4 className="font-semibold text-emerald-800">Revenue Impact</h4>
 							</div>
@@ -187,9 +187,9 @@ export function CMRGrowthProjections({ selectedYear, hospitalName = 'Cedars-Sina
 				</div>
 
 				{/* 30% Growth Profile */}
-				<div className="border border-gray-200 rounded-lg p-6">
-					<div className="flex items-center justify-between mb-6">
-						<h3 className="text-lg font-semibold text-gray-900 flex items-center">
+				<div className="border border-neutral-200 rounded-lg p-4">
+					<div className="flex items-center justify-between mb-4">
+						<h3 className="text-lg font-semibold text-neutral-900 flex items-center">
 							<FontAwesomeIcon icon={faArrowTrendUp} className="w-5 h-5 text-purple-600 mr-2" />
 							30% Growth Profile
 						</h3>
@@ -198,15 +198,15 @@ export function CMRGrowthProjections({ selectedYear, hospitalName = 'Cedars-Sina
 						</span>
 					</div>
 					
-					<div className="space-y-6">
+					<div className="space-y-4">
 						{/* Current vs Projected - Single column */}
-						<div className="space-y-4">
-							<div className="bg-gray-50 rounded-lg p-4 text-center">
-								<p className="text-sm text-gray-600 mb-1">Current Annual</p>
-								<p className="text-2xl font-bold text-gray-900">{formatVolume(growth30Profile.currentVolume)}</p>
-								<p className="text-xs text-gray-500">CMR Studies</p>
+						<div className="space-y-3">
+							<div className="bg-neutral-50 rounded-lg p-3 text-center">
+								<p className="text-sm text-neutral-600 mb-1">Current Annual</p>
+								<p className="text-2xl font-bold text-neutral-900">{formatVolume(growth30Profile.currentVolume)}</p>
+								<p className="text-xs text-neutral-500">CMR Studies</p>
 							</div>
-							<div className="bg-purple-50 rounded-lg p-4 text-center">
+							<div className="bg-purple-50 rounded-lg p-3 text-center">
 								<p className="text-sm text-purple-600 mb-1">With 30% Growth</p>
 								<p className="text-2xl font-bold text-purple-800">{formatVolume(growth30Profile.projectedVolume)}</p>
 								<p className="text-xs text-purple-600">CMR Studies</p>
@@ -214,7 +214,7 @@ export function CMRGrowthProjections({ selectedYear, hospitalName = 'Cedars-Sina
 						</div>
 
 						{/* Revenue Impact */}
-						<div className="bg-purple-100 rounded-lg p-4">
+						<div className="bg-purple-100 rounded-lg p-3">
 							<div className="flex items-center justify-between mb-3">
 								<h4 className="font-semibold text-purple-800">Revenue Impact</h4>
 							</div>
@@ -250,23 +250,23 @@ export function CMRGrowthProjections({ selectedYear, hospitalName = 'Cedars-Sina
 
 			{/* Key Assumptions */}
 			{showGrowthProjections && (
-				<div className="mt-6 bg-gray-50 rounded-lg p-4">
-				<h4 className="font-semibold text-gray-900 mb-2 flex items-center">
-					<FontAwesomeIcon icon={faDollarSign} className="w-4 h-4 text-gray-600 mr-2" />
+				<div className="mt-6 bg-neutral-50 rounded-lg p-4">
+				<h4 className="font-semibold text-neutral-900 mb-2 flex items-center">
+					<FontAwesomeIcon icon={faDollarSign} className="w-4 h-4 text-neutral-600 mr-2" />
 					Reimbursement Assumptions
 				</h4>
-				<div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600">
+				<div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-neutral-600">
 					<div>
 						<span className="font-medium">Average CMR Reimbursement:</span>
-						<p className="text-gray-900 font-semibold">{formatCurrency(currentReimbursementPerCMR)} per study</p>
+						<p className="text-neutral-900 font-semibold">{formatCurrency(currentReimbursementPerCMR)} per study</p>
 					</div>
 					<div>
 						<span className="font-medium">Current Monthly Volume:</span>
-						<p className="text-gray-900 font-semibold">{currentCMRVolume} CMR studies</p>
+						<p className="text-neutral-900 font-semibold">{currentCMRVolume} CMR studies</p>
 					</div>
 					<div>
 						<span className="font-medium">Growth Compounding:</span>
-						<p className="text-gray-900 font-semibold">Annual compound interest</p>
+						<p className="text-neutral-900 font-semibold">Annual compound interest</p>
 					</div>
 				</div>
 			</div>
