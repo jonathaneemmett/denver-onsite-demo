@@ -507,20 +507,23 @@ export function StructuralHeartCapture({ selectedYear, hospitalName = 'Cedars-Si
 			{/* Billing Analysis Tab */}
 			{selectedView === 'billing' && (
 				<div className="space-y-6">
-					<div className="bg-neutral-50 rounded-lg p-4 mb-6">
+					<div className="bg-gradient-to-r from-slate-50 to-stone-50 rounded-lg p-4 mb-6 border border-slate-200">
 						<div className="flex items-center mb-2">
-							<FontAwesomeIcon icon={faDollarSign} className="w-5 h-5 text-neutral-600 mr-2" />
-							<h3 className="text-lg font-semibold text-neutral-900">Billing Volume Analysis</h3>
+							<FontAwesomeIcon icon={faDollarSign} className="w-5 h-5 text-emerald-600 mr-2" />
+							<h3 className="text-lg font-semibold text-slate-900">Billing Volume Analysis</h3>
 						</div>
-						<p className="text-sm text-neutral-600">
+						<p className="text-sm text-slate-600">
 							Estimated myocarditis patient volume based on current billing data and conversion opportunities
 						</p>
 					</div>
 
 					{/* Current vs Potential */}
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-						<div className="bg-slate-50 rounded-lg p-6">
-							<h4 className="font-semibold text-slate-900 mb-4">Current Performance</h4>
+						<div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-lg p-6 border border-slate-200 shadow-sm">
+							<h4 className="font-semibold text-slate-900 mb-4 flex items-center">
+								<div className="w-3 h-3 bg-slate-500 rounded-full mr-2"></div>
+								Current Performance
+							</h4>
 							<div className="space-y-4">
 								<div className="flex justify-between items-center">
 									<span className="text-sm text-slate-700">Myocarditis Cases (Annual)</span>
@@ -547,28 +550,31 @@ export function StructuralHeartCapture({ selectedYear, hospitalName = 'Cedars-Si
 							</div>
 						</div>
 
-						<div className="bg-stone-50 rounded-lg p-6">
-							<h4 className="font-semibold text-stone-900 mb-4">Improvement Potential</h4>
+						<div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-lg p-6 border border-emerald-200 shadow-sm">
+							<h4 className="font-semibold text-emerald-900 mb-4 flex items-center">
+								<div className="w-3 h-3 bg-emerald-500 rounded-full mr-2"></div>
+								Improvement Potential
+							</h4>
 							<div className="space-y-4">
 								<div className="flex justify-between items-center">
-									<span className="text-sm text-stone-700">Target Conversion Rate</span>
-									<span className="font-bold text-stone-900">70%</span>
+									<span className="text-sm text-emerald-700">Target Conversion Rate</span>
+									<span className="font-bold text-emerald-900">70%</span>
 								</div>
 								<div className="flex justify-between items-center">
-									<span className="text-sm text-stone-700">Potential Procedures</span>
-									<span className="font-bold text-stone-900">{mockMyocarditisData.potentialCapture}</span>
+									<span className="text-sm text-emerald-700">Potential Procedures</span>
+									<span className="font-bold text-emerald-900">{mockMyocarditisData.potentialCapture}</span>
 								</div>
 								<div className="flex justify-between items-center">
-									<span className="text-sm text-stone-700">Additional Cases</span>
-									<span className="font-bold text-stone-900">
-										+{mockMyocarditisData.potentialCapture - mockMyocarditisData.currentCapture}
+									<span className="text-sm text-emerald-700">Additional Cases</span>
+									<span className="font-bold text-emerald-900 flex items-center">
+										<span className="text-emerald-600 mr-1">+</span>{mockMyocarditisData.potentialCapture - mockMyocarditisData.currentCapture}
 									</span>
 								</div>
-								<div className="pt-2 border-t border-green-200">
+								<div className="pt-2 border-t border-emerald-200">
 									<div className="flex justify-between items-center">
-										<span className="text-sm text-stone-700">Revenue Opportunity</span>
-										<span className="font-bold text-stone-900">
-											+${(mockMyocarditisData.revenueOpportunity / 1000000).toFixed(1)}M
+										<span className="text-sm text-emerald-700">Revenue Opportunity</span>
+										<span className="font-bold text-emerald-900 flex items-center">
+											<span className="text-emerald-600 mr-1">+</span>${(mockMyocarditisData.revenueOpportunity / 1000000).toFixed(1)}M
 										</span>
 									</div>
 								</div>
@@ -577,41 +583,44 @@ export function StructuralHeartCapture({ selectedYear, hospitalName = 'Cedars-Si
 					</div>
 
 					{/* Conversion Funnel */}
-					<div className="bg-white border border-neutral-200 rounded-lg p-6">
-						<h4 className="font-semibold text-neutral-900 mb-4">Patient Conversion Funnel</h4>
+					<div className="bg-gradient-to-br from-slate-50 to-stone-50 border border-slate-200 rounded-lg p-6 shadow-sm">
+						<h4 className="font-semibold text-slate-900 mb-4 flex items-center">
+							<FontAwesomeIcon icon={faArrowRight} className="w-4 h-4 text-slate-600 mr-2" />
+							Patient Conversion Funnel
+						</h4>
 						<div className="space-y-4">
 							<div className="flex items-center">
-								<div className="w-16 h-12 bg-slate-500 rounded flex items-center justify-center text-white font-bold text-sm">
+								<div className="w-16 h-12 bg-gradient-to-br from-slate-500 to-slate-600 rounded-lg flex items-center justify-center text-white font-bold text-sm shadow-md">
 									{mockMyocarditisData.basedOnBillingVolume}
 								</div>
 								<div className="flex-1 mx-4">
 									<div className="flex items-center">
-										<div className="flex-1 h-2 bg-slate-200 rounded-full">
-											<div className="h-2 bg-slate-500 rounded-full" style={{ width: '100%' }}></div>
+										<div className="flex-1 h-3 bg-slate-200 rounded-full shadow-inner">
+											<div className="h-3 bg-gradient-to-r from-slate-500 to-slate-600 rounded-full shadow-sm" style={{ width: '100%' }}></div>
 										</div>
 										<FontAwesomeIcon icon={faArrowRight} className="w-4 h-4 text-neutral-400 mx-2" />
 									</div>
-									<p className="text-xs text-slate-600 mt-1">Myocarditis Diagnoses</p>
+									<p className="text-xs text-slate-700 mt-1 font-medium">Myocarditis Diagnoses</p>
 								</div>
-								<div className="w-16 h-12 bg-stone-500 rounded flex items-center justify-center text-white font-bold text-sm">
+								<div className="w-16 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-lg flex items-center justify-center text-white font-bold text-sm shadow-md">
 									{mockMyocarditisData.currentCapture}
 								</div>
 								<div className="flex-1 mx-4">
 									<div className="flex items-center">
-										<div className="flex-1 h-2 bg-stone-200 rounded-full">
-											<div className="h-2 bg-stone-500 rounded-full" style={{ 
+										<div className="flex-1 h-3 bg-amber-200 rounded-full shadow-inner">
+											<div className="h-3 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full shadow-sm" style={{ 
 												width: `${(mockMyocarditisData.currentCapture / mockMyocarditisData.potentialCapture) * 100}%` 
 											}}></div>
 										</div>
 										<FontAwesomeIcon icon={faArrowRight} className="w-4 h-4 text-neutral-400 mx-2" />
 									</div>
-									<p className="text-xs text-stone-600 mt-1">Current Procedures</p>
+									<p className="text-xs text-amber-700 mt-1 font-medium">Current Procedures</p>
 								</div>
-								<div className="w-16 h-12 bg-zinc-500 rounded flex items-center justify-center text-white font-bold text-sm">
+								<div className="w-16 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg flex items-center justify-center text-white font-bold text-sm shadow-md">
 									{mockMyocarditisData.potentialCapture}
 								</div>
 								<div className="ml-4">
-									<p className="text-xs text-zinc-600">Target Procedures</p>
+									<p className="text-xs text-emerald-700 font-medium">Target Procedures</p>
 								</div>
 							</div>
 						</div>
