@@ -390,25 +390,25 @@ export function ReferringVolumeAnalytics({ selectedYear, hospitalName = 'Cedars-
 					</div>
 				</div>
 
-				<div className="bg-red-50 rounded-lg p-4">
+				<div className="bg-amber-50 rounded-lg p-4">
 					<div className="flex items-center justify-between">
 						<div>
-							<p className="text-sm text-red-600 mb-1">High Risk Physicians</p>
-							<p className="text-2xl font-bold text-red-800">{highRiskPhysicians}</p>
-							<p className="text-sm text-red-600 mt-1">Declining referral volume</p>
+							<p className="text-sm text-amber-600 mb-1">High Risk Physicians</p>
+							<p className="text-2xl font-bold text-amber-800">{highRiskPhysicians}</p>
+							<p className="text-sm text-amber-600 mt-1">Declining referral volume</p>
 						</div>
-						<FontAwesomeIcon icon={faExclamationTriangle} className="w-6 h-6 text-red-500" />
+						<FontAwesomeIcon icon={faExclamationTriangle} className="w-6 h-6 text-amber-500" />
 					</div>
 				</div>
 
-				<div className="bg-blue-50 rounded-lg p-4">
+				<div className="bg-red-50 rounded-lg p-4">
 					<div className="flex items-center justify-between">
 						<div>
-							<p className="text-sm text-blue-600 mb-1">CMR Referrals at Risk</p>
-							<p className="text-2xl font-bold text-blue-800">{totalCMRAtRisk}</p>
-							<p className="text-sm text-blue-600 mt-1">From high-risk physicians</p>
+							<p className="text-sm text-red-600 mb-1">CMR Referrals at Risk</p>
+							<p className="text-2xl font-bold text-red-800">{totalCMRAtRisk}</p>
+							<p className="text-sm text-red-600 mt-1">From high-risk physicians</p>
 						</div>
-						<FontAwesomeIcon icon={faHeart} className="w-6 h-6 text-blue-500" />
+						<FontAwesomeIcon icon={faHeart} className="w-6 h-6 text-red-500" />
 					</div>
 				</div>
 			</div>
