@@ -6,7 +6,8 @@ import {
   faStethoscope,
   faMicroscope,
   faHeart,
-  faUserMd
+  faUserMd,
+  faUsers
 } from '@fortawesome/free-solid-svg-icons';
 
 interface Leader {
@@ -130,7 +131,8 @@ export function OrganizationalChart({ hospitalName = 'Cedars-Sinai Medical Cente
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
       <div className="mb-4 text-center border-b border-gray-200 pb-3">
-        <h2 className="text-lg font-bold text-gray-900 mb-1">
+        <h2 className="text-lg font-bold text-gray-900 mb-1 flex items-center justify-center">
+          <FontAwesomeIcon icon={faUsers} className="w-4 h-4 text-slate-600 mr-2" />
           {hospitalName?.split(' ')[0] || 'Cedars-Sinai'} Leadership
         </h2>
         <p className="text-sm text-gray-600">

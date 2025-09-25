@@ -9,6 +9,7 @@ import {
 	faHeart,
 	faBuilding,
 	faExclamationTriangle,
+	faUsers,
 } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 
@@ -353,7 +354,8 @@ export function ReferringVolumeAnalytics({ selectedYear, hospitalName = 'Cedars-
 			<div className="mb-6">
 				<div className="flex items-center justify-between mb-4">
 					<div>
-						<h2 className="text-2xl font-semibold text-gray-900 mb-2 flex items-center">
+						<h2 className="text-xl font-semibold text-gray-900 mb-2 flex items-center">
+							<FontAwesomeIcon icon={faUsers} className="w-5 h-5 text-slate-600 mr-3" />
 							{getTitle()}
 							{isPredictiveYear && (
 								<span className="ml-3 bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded-full">

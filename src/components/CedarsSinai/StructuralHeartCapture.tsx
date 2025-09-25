@@ -268,7 +268,8 @@ export function StructuralHeartCapture({ selectedYear, hospitalName = 'Cedars-Si
 	return (
 		<div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
 			<div className="mb-6">
-				<h2 className="text-2xl font-semibold text-gray-900 mb-2 flex items-center">
+				<h2 className="text-xl font-semibold text-gray-900 mb-2 flex items-center">
+					<FontAwesomeIcon icon={faHeart} className="w-5 h-5 text-slate-600 mr-3" />
 					{getTitle()}
 					{isPredictiveYear && (
 						<span className="ml-3 bg-slate-100 text-slate-800 text-xs font-medium px-2 py-1 rounded-full">
