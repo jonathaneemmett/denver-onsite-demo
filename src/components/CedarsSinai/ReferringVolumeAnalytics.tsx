@@ -484,22 +484,52 @@ export function ReferringVolumeAnalytics({ selectedYear, hospitalName = 'Cedars-
 												<h5 className="font-medium text-gray-900 mb-3">
 													Referrals to Cedars-Sinai (6 months) - {selectedYear}
 												</h5>
-												<div className="bg-gray-50 rounded-lg p-3">
-													<div className="flex items-end justify-between h-20">
+												<div className="bg-gradient-to-b from-blue-50 to-white rounded-lg p-4 pt-8 border border-blue-100">
+													<div className="flex items-end justify-between h-24 mb-3 px-2">
 														{physician.currentData.cedarsSinaiVolume.trend.map((volume, index) => {
 															const maxVolume = Math.max(...physician.currentData.cedarsSinaiVolume.trend);
-															const height = (volume / maxVolume) * 60;
+															const height = Math.max((volume / maxVolume) * 70, 8);
+													const isLastMonth = index === physician.currentData.cedarsSinaiVolume.trend.length - 1;
+													const isIncreasing = index > 0 && volume > physician.currentData.cedarsSinaiVolume.trend[index - 1];
+													const isDecreasing = index > 0 && volume < physician.currentData.cedarsSinaiVolume.trend[index - 1];
 															return (
-																<div key={index} className="flex flex-col items-center">
+																<div key={index} className="flex flex-col items-center group relative">
 																	<div
-																		className="bg-blue-500 rounded-t w-8"
+																		className={`rounded-t-md w-10 transition-all duration-300 group-hover:shadow-lg ${
+																			isLastMonth ? 'bg-gradient-to-t from-blue-600 to-blue-400 ring-2 ring-blue-200' :
+																			isIncreasing ? 'bg-gradient-to-t from-emerald-500 to-emerald-400' :
+																			isDecreasing ? 'bg-gradient-to-t from-red-500 to-red-400' :
+																			'bg-gradient-to-t from-slate-400 to-slate-300'
+																		}`}
 																		style={{ height: `${height}px` }}
-																		title={`Month ${index + 1}: ${volume} referrals`}
 																	/>
-																	<span className="text-xs text-gray-600 mt-1">{volume}</span>
+																	<span className="text-xs text-slate-700 mt-2 font-medium">{volume}</span>
+																	<span className="text-xs text-slate-500 mt-1">M{index + 1}</span>
+																	
+																	{/* Tooltip */}
+																	<div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-slate-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+																		Month {index + 1}: {volume} referrals
+																		<div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-800"></div>
+																	</div>
 																</div>
 															);
 														})}
+													</div>
+													
+													{/* Legend */}
+													<div className="flex items-center justify-center gap-4 text-xs mt-3">
+														<div className="flex items-center gap-1">
+															<div className="w-3 h-3 bg-gradient-to-t from-emerald-500 to-emerald-400 rounded"></div>
+															<span className="text-slate-600">Increasing</span>
+														</div>
+														<div className="flex items-center gap-1">
+															<div className="w-3 h-3 bg-gradient-to-t from-red-500 to-red-400 rounded"></div>
+															<span className="text-slate-600">Decreasing</span>
+														</div>
+														<div className="flex items-center gap-1">
+															<div className="w-3 h-3 bg-gradient-to-t from-blue-600 to-blue-400 rounded ring-1 ring-blue-200"></div>
+															<span className="text-slate-600">Current Month</span>
+														</div>
 													</div>
 												</div>
 											</div>

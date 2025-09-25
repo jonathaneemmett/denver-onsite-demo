@@ -352,25 +352,25 @@ export function StructuralHeartCapture({ selectedYear, hospitalName = 'Cedars-Si
 						<h3 className="text-lg font-semibold text-gray-900 mb-4">Cedars-Sinai Performance</h3>
 						<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 							<div className="text-center">
-								<p className="text-3xl font-bold text-slate-700 mb-1">{cedarsSinaiData.myocarditisVolume}</p>
+								<p className="text-3xl font-bold text-blue-700 mb-1">{cedarsSinaiData.myocarditisVolume}</p>
 								<p className="text-sm text-gray-600 mb-2">Myocarditis Cases</p>
-								<p className="text-xs text-slate-600 bg-slate-100 px-2 py-1 rounded-full">
+								<p className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded-full">
 									{cedarsSinaiData.marketShare}% market share
 								</p>
 							</div>
 							<div className="text-center">
-								<p className="text-3xl font-bold text-stone-700 mb-1">{cedarsSinaiData.structuralProcedures}</p>
+								<p className="text-3xl font-bold text-emerald-700 mb-1">{cedarsSinaiData.structuralProcedures}</p>
 								<p className="text-sm text-gray-600 mb-2">Structural Procedures</p>
-								<p className="text-xs text-stone-600 bg-stone-100 px-2 py-1 rounded-full">
+								<p className="text-xs text-emerald-600 bg-emerald-100 px-2 py-1 rounded-full">
 									{cedarsSinaiData.conversionRate}% conversion rate
 								</p>
 							</div>
 							<div className="text-center">
-								<p className="text-3xl font-bold text-zinc-700 mb-1">
+								<p className="text-3xl font-bold text-purple-700 mb-1">
 									{(mockMyocarditisData.potentialCapture - cedarsSinaiData.structuralProcedures)}
 								</p>
 								<p className="text-sm text-gray-600 mb-2">Additional Potential</p>
-								<p className="text-xs text-zinc-600 bg-zinc-100 px-2 py-1 rounded-full">
+								<p className="text-xs text-purple-600 bg-purple-100 px-2 py-1 rounded-full">
 									vs {competitorAvgConversion.toFixed(1)}% competitor avg
 								</p>
 							</div>
