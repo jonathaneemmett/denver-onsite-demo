@@ -427,9 +427,9 @@ export function ExpansionOpportunities({ selectedYear }: ExpansionOpportunitiesP
 
 	const openHospitalProfile = (hospital: HospitalData, event: React.MouseEvent) => {
 		event.stopPropagation();
-		// Create a new window/tab with hospital profile
+		// Navigate to hospital profile in same tab
 		const profileUrl = `/hospital-profile/${hospital.id}`;
-		window.open(profileUrl, '_blank');
+		window.location.href = profileUrl;
 	};
 
 	return (
@@ -623,7 +623,7 @@ export function ExpansionOpportunities({ selectedYear }: ExpansionOpportunitiesP
 														View Full Profile
 													</button>
 													<p className="text-xs text-slate-500 mt-2 text-center">
-														Opens in new tab
+														Opens profile page
 													</p>
 												</div>
 											</div>

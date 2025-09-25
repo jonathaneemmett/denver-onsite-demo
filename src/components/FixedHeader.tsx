@@ -60,7 +60,7 @@ export function FixedHeader({ title, subtitle, selectedYear, availableYears, onY
 						<div className='relative' ref={dropdownRef}>
 							<button
 								onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-								className='flex items-center justify-between bg-white border border-gray-300 rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 min-w-[100px] transition-colors'
+								className='flex items-center justify-between bg-white border border-gray-300 rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-slate-500 min-w-[100px] transition-colors'
 							>
 								<span>{selectedYear}</span>
 								<FontAwesomeIcon
@@ -78,14 +78,14 @@ export function FixedHeader({ title, subtitle, selectedYear, availableYears, onY
 											key={year}
 											onClick={() => handleYearSelect(year)}
 											className={`w-full px-3 py-2 text-left text-sm hover:bg-gray-50 transition-colors flex items-center justify-between ${
-												year === selectedYear ? 'bg-blue-50 text-blue-700' : 'text-gray-700'
+												year === selectedYear ? 'bg-slate-50 text-slate-700' : 'text-gray-700'
 											}`}
 										>
 											<span>{year}</span>
 											{year === selectedYear && (
 												<FontAwesomeIcon
 													icon={faCheck}
-													className='w-3 h-3 text-blue-600'
+													className='w-3 h-3 text-slate-600'
 												/>
 											)}
 										</button>
@@ -95,7 +95,7 @@ export function FixedHeader({ title, subtitle, selectedYear, availableYears, onY
 						</div>
 						
 						{selectedYear >= 2026 && (
-							<span className='bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded-full'>
+							<span className='bg-slate-100 text-slate-800 text-xs font-medium px-2 py-1 rounded-full'>
 								Projected Data
 							</span>
 						)}

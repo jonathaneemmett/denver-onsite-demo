@@ -228,7 +228,7 @@ export default function HospitalProfilePage({ params }: HospitalProfilePageProps
 
 
 	return (
-		<div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+		<div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
 			<FixedHeader 
 				title={`${hospital.name} - Profile`}
 				subtitle="Detailed hospital profile and analytics"
@@ -287,7 +287,7 @@ export default function HospitalProfilePage({ params }: HospitalProfilePageProps
 										<div className="text-xs text-slate-500">Total Beds</div>
 									</div>
 									<div className="text-center p-3 bg-white rounded-lg border border-slate-100">
-										<FontAwesomeIcon icon={faHeart} className="w-4 h-4 text-red-400 mb-1" />
+										<FontAwesomeIcon icon={faHeart} className="w-4 h-4 text-slate-400 mb-1" />
 										<div className="text-lg font-semibold text-slate-800">{hospital.cardiacBeds}</div>
 										<div className="text-xs text-slate-500">Cardiac Beds</div>
 									</div>

@@ -15,7 +15,7 @@ export default function Home() {
 	const [selectedYear, setSelectedYear] = useState<number>(2025);
 	const availableYears = [2024, 2025, 2026, 2027];
 	return (
-		<div className='min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100'>
+		<div className='min-h-screen bg-gradient-to-br from-slate-50 to-slate-100'>
 			<FixedHeader
 				title='Cedars-Sinai Medical Center - Cardiac Imaging Profile'
 				subtitle='Comprehensive facility overview and cardiac services analysis'

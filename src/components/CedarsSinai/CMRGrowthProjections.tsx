@@ -86,10 +86,10 @@ export function CMRGrowthProjections({ selectedYear, hospitalName = 'Cedars-Sina
 		<div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
 			<div className="mb-6">
 				<h2 className="text-2xl font-semibold text-gray-900 mb-2 flex items-center">
-					<FontAwesomeIcon icon={faChartLine} className="w-6 h-6 text-blue-600 mr-3" />
+					<FontAwesomeIcon icon={faChartLine} className="w-6 h-6 text-slate-600 mr-3" />
 					{getTitle()}
 					{isPredictiveYear && (
-						<span className="ml-3 bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded-full">
+						<span className="ml-3 bg-slate-100 text-slate-800 text-xs font-medium px-2 py-1 rounded-full">
 							Projected
 						</span>
 					)}
@@ -100,23 +100,23 @@ export function CMRGrowthProjections({ selectedYear, hospitalName = 'Cedars-Sina
 			</div>
 
 			{/* Current State */}
-			<div className="bg-blue-50 rounded-lg p-6 mb-6">
-				<h3 className="text-lg font-semibold text-blue-900 mb-4 flex items-center">
+			<div className="bg-slate-50 rounded-lg p-6 mb-6">
+				<h3 className="text-lg font-semibold text-slate-900 mb-4 flex items-center">
 					<FontAwesomeIcon icon={faHeart} className="w-5 h-5 mr-2" />
 					Current CMR Performance ({selectedYear})
 				</h3>
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 					<div className="text-center">
-						<p className="text-3xl font-bold text-blue-700 mb-1">{currentCMRVolume}</p>
-						<p className="text-sm text-blue-600">Monthly CMR Volume</p>
+						<p className="text-3xl font-bold text-slate-700 mb-1">{currentCMRVolume}</p>
+						<p className="text-sm text-slate-600">Monthly CMR Volume</p>
 					</div>
 					<div className="text-center">
-						<p className="text-3xl font-bold text-blue-700 mb-1">{formatVolume(annualCMRVolume)}</p>
-						<p className="text-sm text-blue-600">Annual CMR Volume</p>
+						<p className="text-3xl font-bold text-slate-700 mb-1">{formatVolume(annualCMRVolume)}</p>
+						<p className="text-sm text-slate-600">Annual CMR Volume</p>
 					</div>
 					<div className="text-center">
-						<p className="text-3xl font-bold text-green-700 mb-1">{formatCurrency(currentAnnualReimbursement)}</p>
-						<p className="text-sm text-blue-600">Annual CMR Revenue</p>
+						<p className="text-3xl font-bold text-slate-700 mb-1">{formatCurrency(currentAnnualReimbursement)}</p>
+						<p className="text-sm text-slate-600">Annual CMR Revenue</p>
 					</div>
 				</div>
 			</div>
@@ -127,10 +127,10 @@ export function CMRGrowthProjections({ selectedYear, hospitalName = 'Cedars-Sina
 				<div className="border border-gray-200 rounded-lg p-6">
 					<div className="flex items-center justify-between mb-6">
 						<h3 className="text-lg font-semibold text-gray-900 flex items-center">
-							<FontAwesomeIcon icon={faArrowTrendUp} className="w-5 h-5 text-green-600 mr-2" />
+							<FontAwesomeIcon icon={faArrowTrendUp} className="w-5 h-5 text-slate-600 mr-2" />
 							20% Growth Profile
 						</h3>
-						<span className="bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded-full">
+						<span className="bg-slate-100 text-slate-800 text-xs font-medium px-2 py-1 rounded-full">
 							Conservative
 						</span>
 					</div>
@@ -143,37 +143,37 @@ export function CMRGrowthProjections({ selectedYear, hospitalName = 'Cedars-Sina
 								<p className="text-2xl font-bold text-gray-900">{formatVolume(growth20Profile.currentVolume)}</p>
 								<p className="text-xs text-gray-500">CMR Studies</p>
 							</div>
-							<div className="bg-green-50 rounded-lg p-4 text-center">
-								<p className="text-sm text-green-600 mb-1">With 20% Growth</p>
-								<p className="text-2xl font-bold text-green-800">{formatVolume(growth20Profile.projectedVolume)}</p>
-								<p className="text-xs text-green-600">CMR Studies</p>
+							<div className="bg-slate-50 rounded-lg p-4 text-center">
+								<p className="text-sm text-slate-600 mb-1">With 20% Growth</p>
+								<p className="text-2xl font-bold text-slate-800">{formatVolume(growth20Profile.projectedVolume)}</p>
+								<p className="text-xs text-slate-600">CMR Studies</p>
 							</div>
 						</div>
 
 						{/* Revenue Impact */}
-						<div className="bg-green-100 rounded-lg p-4">
+						<div className="bg-slate-100 rounded-lg p-4">
 							<div className="flex items-center justify-between mb-3">
-								<h4 className="font-semibold text-green-800">Revenue Impact</h4>
+								<h4 className="font-semibold text-slate-800">Revenue Impact</h4>
 							</div>
 							<div className="space-y-2">
 								<div className="flex justify-between">
-									<span className="text-sm text-green-700">Current Revenue:</span>
-									<span className="font-bold text-green-800">{formatCurrency(growth20Profile.currentRevenue)}</span>
+									<span className="text-sm text-slate-700">Current Revenue:</span>
+									<span className="font-bold text-slate-800">{formatCurrency(growth20Profile.currentRevenue)}</span>
 								</div>
 								<div className="flex justify-between">
-									<span className="text-sm text-green-700">Projected Revenue:</span>
-									<span className="font-bold text-green-800">{formatCurrency(growth20Profile.projectedRevenue)}</span>
+									<span className="text-sm text-slate-700">Projected Revenue:</span>
+									<span className="font-bold text-slate-800">{formatCurrency(growth20Profile.projectedRevenue)}</span>
 								</div>
 								<div className="pt-2 border-t border-green-200">
 									<div className="flex justify-between">
-										<span className="font-medium text-green-800">Additional Revenue:</span>
-										<span className="text-lg font-bold text-green-900">
+										<span className="font-medium text-slate-800">Additional Revenue:</span>
+										<span className="text-lg font-bold text-slate-900">
 											+{formatCurrency(growth20Profile.additionalRevenue)}
 										</span>
 									</div>
 									<div className="flex justify-between mt-1">
-										<span className="text-sm text-green-700">Additional Studies:</span>
-										<span className="font-semibold text-green-800">
+										<span className="text-sm text-slate-700">Additional Studies:</span>
+										<span className="font-semibold text-slate-800">
 											+{formatVolume(growth20Profile.additionalVolume)} CMR
 										</span>
 									</div>
