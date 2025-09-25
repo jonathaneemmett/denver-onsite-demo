@@ -418,13 +418,13 @@ export function StructuralHeartCapture({ selectedYear, hospitalName = 'Cedars-Si
 							</thead>
 							<tbody>
 								{mockRegionalData.map((hospital, index) => (
-									<tr key={index} className={`${index === 0 ? 'bg-slate-100 border-slate-300' : 'hover:bg-gray-50'}`}>
+									<tr key={index} className={`${index === 0 ? 'bg-blue-50 border-blue-200' : 'hover:bg-gray-50'}`}>
 										<td className="border border-gray-300 px-4 py-4">
 											<div className="flex items-center">
 												{index === 0 && (
-													<FontAwesomeIcon icon={faHeart} className="w-4 h-4 text-slate-700 mr-2" />
+													<FontAwesomeIcon icon={faHeart} className="w-4 h-4 text-blue-600 mr-2" />
 												)}
-												<span className={`font-semibold text-sm ${index === 0 ? 'text-slate-900' : 'text-gray-900'}`}>
+												<span className={`font-semibold text-sm ${index === 0 ? 'text-blue-900' : 'text-gray-900'}`}>
 													{hospital.name}
 												</span>
 											</div>
@@ -435,17 +435,19 @@ export function StructuralHeartCapture({ selectedYear, hospitalName = 'Cedars-Si
 											</span>
 										</td>
 										<td className="border border-gray-300 px-4 py-4 text-center">
-											<span className="text-lg font-bold text-gray-900">
+											<span className={`text-lg font-bold ${index === 0 ? 'text-blue-700' : 'text-gray-900'}`}>
 												{hospital.myocarditisVolume}
 											</span>
 										</td>
 										<td className="border border-gray-300 px-4 py-4 text-center">
-											<span className="text-lg font-bold text-slate-700">
+											<span className={`text-lg font-bold ${index === 0 ? 'text-blue-700' : 'text-slate-700'}`}>
 												{hospital.structuralProcedures}
 											</span>
 										</td>
 										<td className="border border-gray-300 px-4 py-4 text-center">
 											<span className={`text-lg font-bold px-3 py-1 rounded-full ${
+												index === 0 && hospital.conversionRate > competitorAvgConversion ? 'bg-emerald-100 text-emerald-800' :
+												index === 0 && hospital.conversionRate <= competitorAvgConversion ? 'bg-red-100 text-red-800' :
 												hospital.conversionRate >= 60 ? 'bg-stone-100 text-stone-800' :
 												hospital.conversionRate >= 50 ? 'bg-yellow-100 text-yellow-800' : 'bg-red-100 text-red-800'
 											}`}>
@@ -453,7 +455,7 @@ export function StructuralHeartCapture({ selectedYear, hospitalName = 'Cedars-Si
 											</span>
 										</td>
 										<td className="border border-gray-300 px-4 py-4 text-center">
-											<span className="font-bold text-gray-900">
+											<span className={`font-bold ${index === 0 ? 'text-blue-700' : 'text-gray-900'}`}>
 												{hospital.marketShare.toFixed(1)}%
 											</span>
 										</td>
