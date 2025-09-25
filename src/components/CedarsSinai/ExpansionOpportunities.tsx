@@ -379,15 +379,27 @@ const hospitalDataByYear: Record<number, HospitalData[]> = {
 
 interface ExpansionOpportunitiesProps {
 	selectedYear: number;
+	currentHospitalId?: string;
+	currentHealthSystem?: string;
 }
 
-export function ExpansionOpportunities({ selectedYear }: ExpansionOpportunitiesProps) {
+export function ExpansionOpportunities({ selectedYear, currentHospitalId, currentHealthSystem }: ExpansionOpportunitiesProps) {
 	const [selectedHospital, setSelectedHospital] = useState<string | null>(null);
 	
 	const hospitalData = hospitalDataByYear[selectedYear] || hospitalDataByYear[2025];
 	
+	// Filter to only show hospitals in the same health system, excluding the current hospital
+	const filteredHospitalData = currentHealthSystem && currentHospitalId
+		? hospitalData.filter(hospital => 
+			hospital.structure === currentHealthSystem && 
+			hospital.id !== currentHospitalId
+		)
+		: currentHospitalId 
+			? hospitalData.filter(hospital => hospital.id !== currentHospitalId)
+			: hospitalData;
+	
 	// Group hospitals by structure
-	const groupedHospitals = hospitalData.reduce((acc, hospital) => {
+	const groupedHospitals = filteredHospitalData.reduce((acc, hospital) => {
 		if (!acc[hospital.structure]) {
 			acc[hospital.structure] = [];
 		}
@@ -445,14 +457,27 @@ export function ExpansionOpportunities({ selectedYear }: ExpansionOpportunitiesP
 					)}
 				</h2>
 				<p className="text-slate-600 text-sm">
-					Regional health systems with CMR and chest MRI volumes - click any hospital to view profile
+					{currentHealthSystem 
+						? `Other locations within ${currentHealthSystem} with CMR and chest MRI volumes - click any hospital to view profile`
+						: 'Regional health systems with CMR and chest MRI volumes - click any hospital to view profile'
+					}
 					{isPredictiveYear && ' (Statistical projections based on market analysis)'}
 				</p>
 			</div>
 
 			{/* Health System Groups */}
 			<div className="space-y-6">
-				{Object.entries(groupedHospitals).map(([structure, hospitals]) => (
+				{Object.entries(groupedHospitals).length === 0 ? (
+					<div className="text-center py-8 bg-slate-50 rounded-lg">
+						<p className="text-slate-600">
+							{currentHealthSystem 
+								? `No other locations found within ${currentHealthSystem}`
+								: 'No expansion opportunities found'
+							}
+						</p>
+					</div>
+				) : (
+					Object.entries(groupedHospitals).map(([structure, hospitals]) => (
 					<div key={structure} className="border border-slate-200 rounded-xl overflow-hidden bg-white">
 						{/* Health System Header */}
 						<div className={`bg-gradient-to-r ${getStructureColor(structure)} px-4 py-3`}>
@@ -633,28 +658,34 @@ export function ExpansionOpportunities({ selectedYear }: ExpansionOpportunitiesP
 							))}
 						</div>
 					</div>
-				))}
+				))
+				)}
 			</div>
 
 			{/* Summary Stats */}
 			<div className="mt-6 bg-slate-50 rounded-xl p-4">
-				<h4 className="font-medium text-slate-900 mb-3 text-sm">Regional Summary</h4>
+				<h4 className="font-medium text-slate-900 mb-3 text-sm">
+					{currentHealthSystem 
+						? `${currentHealthSystem} Network Summary`
+						: 'Regional Summary'
+					}
+				</h4>
 				<div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
 					<div>
 						<p className="text-lg font-semibold text-slate-700">
-							{hospitalData.reduce((sum, h) => sum + h.cmrVolume, 0)}
+							{filteredHospitalData.reduce((sum, h) => sum + h.cmrVolume, 0)}
 						</p>
 						<p className="text-xs text-slate-500">Total CMR</p>
 					</div>
 					<div>
 						<p className="text-lg font-semibold text-slate-700">
-							{hospitalData.reduce((sum, h) => sum + h.chestMriVolume, 0)}
+							{filteredHospitalData.reduce((sum, h) => sum + h.chestMriVolume, 0)}
 						</p>
 						<p className="text-xs text-slate-500">Total Chest MRI</p>
 					</div>
 					<div>
 						<p className="text-lg font-semibold text-red-600">
-							{hospitalData.filter(h => h.opportunity === 'high').length}
+							{filteredHospitalData.filter(h => h.opportunity === 'high').length}
 						</p>
 						<p className="text-xs text-slate-500">High Opportunity</p>
 					</div>

@@ -247,7 +247,7 @@ export default function HospitalProfilePage({ params }: HospitalProfilePageProps
 						<CMRGrowthProjections selectedYear={selectedYear} hospitalName={hospital.name} />
 						<ReferringVolumeAnalytics selectedYear={selectedYear} hospitalName={hospital.name} />
 						<StructuralHeartCapture selectedYear={selectedYear} hospitalName={hospital.name} />
-						<ExpansionOpportunities selectedYear={selectedYear} />
+						<ExpansionOpportunities selectedYear={selectedYear} currentHospitalId={id} currentHealthSystem={hospital.healthSystem} />
 					</div>
 
 					{/* RIGHT COLUMN - Sidebar - 1/3 width */}

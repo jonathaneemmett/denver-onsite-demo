@@ -57,18 +57,20 @@ export function CMRGrowthProjections({ selectedYear, hospitalName = 'Cedars-Sina
 		return new Intl.NumberFormat('en-US').format(volume);
 	};
 
-	// Get data for selected year
-	const currentYearData = yearlyDataMap[selectedYear] || yearlyDataMap[2025];
-	const currentCMRVolume = currentYearData.monthlyVolume;
-	const currentReimbursementPerCMR = currentYearData.reimbursementPerStudy;
+	// Always use 2025 data for "Current CMR Performance" baseline
+	const baselineData = yearlyDataMap[2025];
+	const currentCMRVolume = baselineData.monthlyVolume;
+	const currentReimbursementPerCMR = baselineData.reimbursementPerStudy;
 	const annualCMRVolume = currentCMRVolume * 12;
 	const currentAnnualReimbursement = annualCMRVolume * currentReimbursementPerCMR;
 
-	// Calculate projections based on current year data
-	const growth20Profile = calculate1YearProjection(20, currentCMRVolume, currentReimbursementPerCMR);
-	const growth30Profile = calculate1YearProjection(30, currentCMRVolume, currentReimbursementPerCMR);
+	// For growth projections, use the selected year's data as the starting point
+	const projectionBaseData = yearlyDataMap[selectedYear] || yearlyDataMap[2025];
+	const growth20Profile = calculate1YearProjection(20, projectionBaseData.monthlyVolume, projectionBaseData.reimbursementPerStudy);
+	const growth30Profile = calculate1YearProjection(30, projectionBaseData.monthlyVolume, projectionBaseData.reimbursementPerStudy);
 
 	const isPredictiveYear = selectedYear >= 2026;
+	const showGrowthProjections = selectedYear >= 2026;
 	const getTitle = () => {
 		const shortName = hospitalName?.split(' ')[0] || 'Cedars-Sinai';
 		return `${shortName} CMR Growth Projections & Revenue Impact`;
@@ -103,7 +105,7 @@ export function CMRGrowthProjections({ selectedYear, hospitalName = 'Cedars-Sina
 			<div className="bg-slate-50 rounded-lg p-6 mb-6">
 				<h3 className="text-lg font-semibold text-slate-900 mb-4 flex items-center">
 					<FontAwesomeIcon icon={faHeart} className="w-5 h-5 mr-2" />
-					Current CMR Performance ({selectedYear})
+					Current CMR Performance (2025)
 				</h3>
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 					<div className="text-center">
@@ -122,7 +124,8 @@ export function CMRGrowthProjections({ selectedYear, hospitalName = 'Cedars-Sina
 			</div>
 
 			{/* Growth Scenarios - Single Year Profiles */}
-			<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+			{showGrowthProjections && (
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 				{/* 20% Growth Profile */}
 				<div className="border border-gray-200 rounded-lg p-6">
 					<div className="flex items-center justify-between mb-6">
@@ -243,9 +246,11 @@ export function CMRGrowthProjections({ selectedYear, hospitalName = 'Cedars-Sina
 					</div>
 				</div>
 			</div>
+			)}
 
 			{/* Key Assumptions */}
-			<div className="mt-6 bg-gray-50 rounded-lg p-4">
+			{showGrowthProjections && (
+				<div className="mt-6 bg-gray-50 rounded-lg p-4">
 				<h4 className="font-semibold text-gray-900 mb-2 flex items-center">
 					<FontAwesomeIcon icon={faDollarSign} className="w-4 h-4 text-gray-600 mr-2" />
 					Reimbursement Assumptions
@@ -265,6 +270,7 @@ export function CMRGrowthProjections({ selectedYear, hospitalName = 'Cedars-Sina
 					</div>
 				</div>
 			</div>
+			)}
 		</div>
 	);
 }
